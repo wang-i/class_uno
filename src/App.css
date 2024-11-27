@@ -2,7 +2,23 @@ body {
   background-color: #ec3939;
 }
 
-h3 {
+h1 { /*card back; "UNO"*/
+  font-size: 120px;
+  line-height: 0px;
+  letter-spacing: -10px;
+  color: #f9db2f;
+  text-shadow: -12px 8px black;
+}
+
+h2 { /*card back; "CLASS"*/
+  font-size: 40px;
+  line-height: 0px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-shadow: -4px 4px black;
+}
+
+h3 { /*class name*/
   color: white;
   font-size: x-large;
   font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif; font-weight:600; font-stretch:condensed;
@@ -12,14 +28,14 @@ h3 {
   line-height: 0px;
 }
 
-h4 {
+h4 { /*class quote*/
   margin-top: 12px;
   margin-bottom: 15px;
   line-height: 0px;
 }
 
-p {
-  font-size: 15px;
+p { /*class description*/
+  font-size: 14px;
 }
 
 .App {
@@ -86,8 +102,19 @@ p {
 
 .Card-Back {
   background-color: black;
-  color: #f9db2f;
   border-radius: 20px;
+}
+
+.Oval-Border {
+  position: absolute;
+  z-index: 1; /*render white border after (on top of) red oval*/
+  margin-top: -15px;
+  left: -15px;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  border: 15px solid white;
+  border-radius: 23px;
 }
 
 .Oval {
@@ -99,6 +126,20 @@ p {
   background: #ef232c;
   border-radius: 50%; /*https://stackoverflow.com/questions/26961221/how-to-make-an-oval-in-css*/
   rotate: -52deg;
+}
+
+.Oval-Text-Smaller {
+  position: absolute;
+  margin-top: 45px;
+  left: 215px;
+  rotate: 33deg;
+}
+
+.Oval-Text-Main {
+  position: absolute;
+  margin-top: 50px;
+  left: 115px;
+  rotate: 33deg;
 }
 
 .Title {

@@ -1,18 +1,18 @@
 export const classNames = [ // font is not monospaced so the spaces are all fucked up (inconsistent)
-  "Traveller                                      #01",
-  "Warrior                                        #02",
-  "Swordfighter                               #03",
-  "Sorcerer                                      #04",
-  "Weasel                                         #05",
-  "Trickster                                      #06",
-  "Summoner                                  #07",
-  "Drunk                                           #08",
-  "Spy                                              #09",
-  "Time Traveller                             #10",
-  "Sheriff                                          #11",
-  "Communist                                 #12",
-  "Witch                                           #13",
-  "Murderer                                     #14"
+  "Traveller                                  #01",
+  "Warrior                                    #02",
+  "Swordfighter                           #03",
+  "Sorcerer                                  #04",
+  "Weasel                                     #05",
+  "Trickster                                  #06",
+  "Summoner                              #07",
+  "Drunk                                       #08",
+  "Spy                                          #09",
+  "Time Traveller                         #10",
+  "Sheriff                                      #11",
+  "Communist                             #12",
+  "Witch                                       #13",
+  "Murderer                                 #14"
 ];
 
 export const classImages = [
@@ -42,7 +42,7 @@ export const classQuotes = [
   "[No quote yet]",
   "[No quote yet]",
   "\"Gentlemen\"",
-  "[No quote yet]",
+  "\"I love class uno so much\"",
   "[No quote yet]",
   "\"ты Сталин\"",
   "[No quote yet]",

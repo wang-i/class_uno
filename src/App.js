@@ -81,9 +81,15 @@ function App() {
             </div> {/*Description*/}
           </div> {/*Card-Front*/}
           <div className="Card-Back">
+            <div className="Oval-Border"></div>
             <div className="Oval">
-              <h1>Class UNO</h1>
-            </div>
+                <div className="Oval-Text-Smaller">
+                  <h2>CLASS</h2>
+                </div>
+                <div className="Oval-Text-Main">
+                  <h1>UNO</h1>
+                </div>
+            </div> {/*Oval*/}
           </div> {/*Card-Back*/}
         </div> {/*Card-Inner*/}
 
