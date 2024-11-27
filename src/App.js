@@ -23,21 +23,21 @@ function App() {
   // State change after reload
   const handleClick = () => {
     const randNum = Math.floor(Math.random() * classNames.length);
-    
+
     setClass(classNames[randNum]);
     setImage(classImages[randNum]);
     setQuote(classQuotes[randNum]);
 
-    if (randNum == 9) { // Time traveller has a longer list of positive effects
-      setPosEffect(posEffects[randNum*3] + "\n" + posEffects[randNum*3 + 1] + "\n" + posEffects[randNum*3 + 2]);
+    if (randNum === 9) { // Time traveller has a longer list of positive effects
+      setPosEffect(posEffects[randNum * 3] + "\n" + posEffects[randNum * 3 + 1] + "\n" + posEffects[randNum * 3 + 2]);
     } else {
-      setPosEffect(posEffects[randNum*3] + "\n" + posEffects[randNum*3 + 1]);
+      setPosEffect(posEffects[randNum * 3] + "\n" + posEffects[randNum * 3 + 1]);
     }
-    
-    if (randNum == 0) { // Traveller has no negative effects
+
+    if (randNum === 0) { // Traveller has no negative effects
       setNegEffect("");
     } else {
-    setNegEffect(negEffects[randNum*2] + "\n" + negEffects[randNum*2 + 1]);
+      setNegEffect(negEffects[randNum * 2] + "\n" + negEffects[randNum * 2 + 1]);
     }
 
     // Change background color
@@ -53,7 +53,7 @@ function App() {
   const documentRef = useRef(document); //https://www.preciousorigho.com/articles/a-better-way-to-create-event-listeners-in-react
   documentRef.current.addEventListener("keydown", (e) => {
     onkeydown = (e) => {
-      if (e.key == 'Enter' || e.key == " ") {
+      if (e.key === 'Enter' || e.key === " ") {
         handleClick();
       };
     }
@@ -62,24 +62,36 @@ function App() {
   return (
     <div className="App">
       <div className="Card">
-        <div className="Title">
-          <h3>{clazz}</h3>
-        </div>
-        <div className="Image">
-          <img src={image} className="App-logo" alt="logo" />
-        </div>
-        <div className="Quote">
-          <h4>{quote}</h4>
-        </div>
-          <div className="Description">
-            <div className="Description-Container">
-              <p id="class-description-pos">{posEffect}</p>
-              <p id="class-description-neg">{negEffect}</p>
+        <div className="Card-Inner">
+          <div className="Card-Front">
+            <div className="Title">
+              <h3>{clazz}</h3>
+            </div> {/*Title*/}
+            <div className="Image">
+              <img src={image} className="App-logo" alt="logo" />
+            </div> {/*Image*/}
+            <div className="Quote">
+              <h4>{quote}</h4>
+            </div> {/*Quote*/}
+            <div className="Description">
+              <div className="Description-Container">
+                <p id="class-description-pos">{posEffect}</p>
+                <p id="class-description-neg">{negEffect}</p>
+              </div> {/*Description-Container*/}
+            </div> {/*Description*/}
+          </div> {/*Card-Front*/}
+          <div className="Card-Back">
+            <div className="Oval">
+              <h1>Class UNO</h1>
             </div>
-          </div>
-      </div>
+          </div> {/*Card-Back*/}
+        </div> {/*Card-Inner*/}
+
+
+      </div> {/*Card*/}
+
       <button onClick={handleClick}>Generate class</button>
-    </div>
+    </div> //App
   );
 }
 

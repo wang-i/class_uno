@@ -1,6 +1,5 @@
 body {
   background-color: #ec3939;
-  /*background-color: #e79c9c;*/
 }
 
 h3 {
@@ -34,13 +33,6 @@ p {
   pointer-events: none;
 }
 
-/*
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}*/
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -56,24 +48,57 @@ p {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Card {
+  width: 350px;   /*25 times 14*/
+  height: 490px;  /*35 times 14*/
+  margin-top: 25px;
+  margin-bottom: 60px;
 }
 
-.Card {
+.Card-Inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
   background-color: black;
   box-shadow: 10px 10px 5px rgb(49, 49, 49);
-  width: 375px;   /*25 times 15*/
-  height: 525px;  /*35 times 15*/
-  margin-top: 25px;
-  margin-bottom: 25px;
   border: 15px solid white;
   border-radius: 23px;
+}
+
+.Card:hover .Card-Inner {
+  transform: rotateY(180deg);
+  box-shadow: -10px 10px 5px rgb(49, 49, 49);
+}
+
+.Card-Front, .Card-Back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.Card-Front {
+  transform: rotateY(180deg);
+}
+
+.Card-Back {
+  background-color: black;
+  color: #f9db2f;
+  border-radius: 20px;
+}
+
+.Oval {
+  position: relative; /*https://www.w3schools.com/css/css_positioning.asp*/
+  left: -66px;
+  margin-top: 112px;
+  width: 480px;
+  height: 265px;
+  background: #ef232c;
+  border-radius: 50%; /*https://stackoverflow.com/questions/26961221/how-to-make-an-oval-in-css*/
+  rotate: -52deg;
 }
 
 .Title {
