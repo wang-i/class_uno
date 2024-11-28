@@ -16,20 +16,20 @@ export const classNames = [ // font is not monospaced so the spaces are all fuck
 ];
 
 export const classImages = [
-  require("../images/traveller.png"),
-  require("../images/warrior.png"),
-  require("../images/swordfighter.png"),
-  require("../images/sorcerer.png"),
-  require("../images/weasel.png"),
-  require("../images/trickster.png"),
-  require("../images/summoner.png"),
-  require("../images/drunk.png"),
-  require("../images/spy.png"),
-  require("../images/timetraveller.png"),
-  require("../images/sheriff.png"),
-  require("../images/communist.png"),
-  require("../images/witch.png"),
-  require("../images/murderer.png"),
+  require("../assets/images/traveller.png"),
+  require("../assets/images/warrior.png"),
+  require("../assets/images/swordfighter.png"),
+  require("../assets/images/sorcerer.png"),
+  require("../assets/images/weasel.png"),
+  require("../assets/images/trickster.png"),
+  require("../assets/images/summoner.png"),
+  require("../assets/images/drunk.png"),
+  require("../assets/images/spy.png"),
+  require("../assets/images/timetraveller.png"),
+  require("../assets/images/sheriff.png"),
+  require("../assets/images/communist.png"),
+  require("../assets/images/witch.png"),
+  require("../assets/images/murderer.png"),
 ]
 
 export const classQuotes = [
