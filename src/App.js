@@ -14,6 +14,7 @@ import cardSfx from './assets/sfx/card_pickup.wav';
 
 function App() {
   // Initial state
+  const [numGenerated, setNumGenerated] = useState(0);
   const [color, setColor] = useState("#ec3939");
   const [randNum, setRandNum] = useState(-1);
   
@@ -23,25 +24,72 @@ function App() {
   const [interrupt, setInterrupt] = useState(false); //true or false; specifies whether or not the sound should be able to "overlap" if the play function is called again before the sound has ended
   const [play] = useSound(cardSfx, { volume, playbackRate, interrupt });
 
+  var timeoutTime;
+
   // State change after reload
   const handleClick = () => {
-    // Logic for RNG; we want to prevent consecutive duplicates
-    var x;
-    do {
-      x = Math.floor(Math.random() * classNames.length);
-    } while (x === randNum)
-    setRandNum(x);
+    setNumGenerated(numGenerated + 1);
 
-    // Change info on card
-    getRandCard(randNum);
+    // Play card hide animation if it's not the first card being revealed
+    if (numGenerated !== 0) {
+      restartAnimation1();
+      timeoutTime = 2000;
+    } else { // If it is the first card, go straight into card reveal animation
+      timeoutTime = 0;
+    }
 
-    // Change background color
-    const randColor = randNum % softColors.length; // each class should have a consistent colour
-    setColor(softColors[randColor]);
+    // Use timeout to ensure animation finishes before changing class
+    setTimeout(() => {
+      // Logic for background RNG; we want to prevent consecutive duplicates
+      var x;
+      do {
+        x = Math.floor(Math.random() * softColors.length);
+      } while (x === randNum)
+      setRandNum(x);
 
-    // Play audio
-    play();
+      // Change info on card
+      getRandCard();
+
+      // Change background color
+      const randColor = randNum % softColors.length; // each class should have a consistent colour
+      setColor(softColors[randColor]);
+
+      // Play audio
+      play();
+
+      // Play card reveal animation
+      restartAnimation2();
+    }, timeoutTime);
+
+    
   };
+
+  // Hide card
+  function restartAnimation1() { //https://www.kirupa.com/animations/restarting_css_animations.htm
+    let card = document.getElementsByClassName("Card-Inner")[0];
+    // Switch to a different animation momentarily to be able to "reset" the flipCard animation
+    card.style.animationName = "keepCardRevealed";
+
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        card.style.animation = "flipCard 0.5s 0s reverse";
+        play();
+      }, 500);
+    });
+  }
+
+  // Reveal card
+  function restartAnimation2() { //https://www.kirupa.com/animations/restarting_css_animations.htm
+    let card = document.getElementsByClassName("Card-Inner")[0];
+
+    card.style.animationName = "none";
+
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        card.style.animation = "flipCard 1s 0s forwards";
+      }, 0);
+    });
+  }
 
   useEffect(() => { //https://ghost-together.medium.com/how-to-change-background-color-dynamically-in-react-on-mouse-click-8af02fdc5e95
     document.body.style.backgroundColor = color
@@ -61,6 +109,7 @@ function App() {
     <div className="App">
       <Card />
       <button onClick={handleClick}>Generate class</button>
+      <p>{ numGenerated }</p>
     </div> //App
   );
 }

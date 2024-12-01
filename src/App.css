@@ -71,6 +71,27 @@ p { /*class description*/
   margin-bottom: 60px;
 }
 
+@keyframes keepCardRevealed {
+  0% {
+    transform: rotateY(180deg);
+    box-shadow: -10px 10px 5px rgb(49, 49, 49);
+  }
+  100% {
+    transform: rotateY(180deg);
+    box-shadow: -10px 10px 5px rgb(49, 49, 49);
+  }
+}
+
+@keyframes flipCard {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+    box-shadow: -10px 10px 5px rgb(49, 49, 49);
+  }
+}
+
 .Card-Inner {
   position: relative;
   width: 100%;
@@ -81,11 +102,6 @@ p { /*class description*/
   box-shadow: 10px 10px 5px rgb(49, 49, 49);
   border: 15px solid white;
   border-radius: 23px;
-}
-
-.Card:hover .Card-Inner {
-  transform: rotateY(180deg);
-  box-shadow: -10px 10px 5px rgb(49, 49, 49);
 }
 
 .Card-Front, .Card-Back {
