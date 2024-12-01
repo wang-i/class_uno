@@ -51,7 +51,9 @@ export function Card() {
 };
 
 // Customize card based on chosen class
-export function getRandCard(randNum) {
+export function getRandCard() {
+  const randNum = Math.floor(Math.random() * classNames.length);
+
   clazz = classNames[randNum];
   image = classImages[randNum];
   quote = classQuotes[randNum];
