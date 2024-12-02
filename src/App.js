@@ -1,7 +1,6 @@
 import './App.css';
 import { Card, getRandCard } from './Card.js';
 
-import { classNames } from './components/class-info';
 import { softColors } from './components/colors';
 import { brightColors } from './components/colors';
 
@@ -30,6 +29,9 @@ function App() {
   const handleClick = () => {
     setNumGenerated(numGenerated + 1);
 
+    // Disable button
+    document.getElementById("btn").disabled = true; //https://stackoverflow.com/questions/1550150/how-to-rate-limit-clicks-on-a-button-to-once-per-minute-in-javascript
+
     // Play card hide animation if it's not the first card being revealed
     if (numGenerated !== 0) {
       restartAnimation1();
@@ -51,7 +53,7 @@ function App() {
       getRandCard();
 
       // Change background color
-      const randColor = randNum % softColors.length; // each class should have a consistent colour
+      const randColor = randNum % softColors.length;
       setColor(softColors[randColor]);
 
       // Play audio
@@ -59,9 +61,14 @@ function App() {
 
       // Play card reveal animation
       restartAnimation2();
+      
+      // Re-enable button after card is fully revealed
+      setTimeout(() => {
+        document.getElementById("btn").disabled = false;
+      }, 1000);
+      
     }, timeoutTime);
 
-    
   };
 
   // Hide card
@@ -100,7 +107,10 @@ function App() {
   documentRef.current.addEventListener("keyup", (e) => {
     onkeyup = (e) => {
       if (e.key === 'Enter' || e.key === " ") {
-        handleClick();
+        // Only call function if button is not disabled (meaning cooldown is over)
+        if (document.getElementById("btn").disabled === false) {
+          handleClick();
+        }
       };
     }
   });
@@ -108,8 +118,7 @@ function App() {
   return (
     <div className="App">
       <Card />
-      <button onClick={handleClick}>Generate class</button>
-      <p>{ numGenerated }</p>
+      <button id = "btn" onClick={handleClick}>NEW CLASS 🔁</button>
     </div> //App
   );
 }

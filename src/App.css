@@ -44,11 +44,6 @@ p { /*class description*/
   text-align: center;
 }
 
-.App-logo {
-  height: 100%;
-  pointer-events: none;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -179,6 +174,10 @@ p { /*class description*/
   border-color: white;
   border-style: groove;
   border-width: 0px 4px;
+}
+
+.class-image {
+  height: 100%;
 }
 
 .Quote {
