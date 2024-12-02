@@ -6,11 +6,11 @@ import { classQuotes } from './components/class-info';
 import { posEffects } from './components/class-info';
 import { negEffects } from './components/class-info';
 
-var clazz = "OMG Class Uno!!!!!";
-var image = logo;
-var quote = "woahhhhhhhhhh wow amazing ඞ";
-var posEffect = "+ fun";
-var negEffect = "- brain explode";
+var clazz;
+var image;
+var quote;
+var posEffect;
+var negEffect;
 
 // Basic template for card
 export function Card() {
@@ -22,7 +22,7 @@ export function Card() {
             <h3>{clazz}</h3>
           </div> {/*Title*/}
           <div className="Image">
-            <img src={image} className="App-logo" alt="logo" />
+            <img src={image} className="class-image" alt="class image" />
           </div> {/*Image*/}
           <div className="Quote">
             <h4>{quote}</h4>
